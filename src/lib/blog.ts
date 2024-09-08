@@ -49,8 +49,6 @@ function extractHeadings(content: string): TableOfContents {
       const htmlTree = fromHtml(node.value, { fragment: true });
       const element = htmlTree.children[0];
 
-      console.log({ element });
-
       if (
         element &&
         "tagName" in element &&

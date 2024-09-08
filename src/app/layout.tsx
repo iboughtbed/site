@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          "bg-background antialiased",
+          "bg-background font-sans antialiased",
           GeistSans.variable,
           GeistMono.variable,
         )}

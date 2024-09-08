@@ -158,40 +158,95 @@ export const Icons = {
       ></path>
     </svg>
   ),
-  moon: (props: IconProps) => (
+  pen: (props: IconProps) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" {...props}>
+      <path
+        d="M3.69601 15.8112L2.15894 19.91C1.70676 21.1158 2.88429 22.2934 4.09012 21.8412L8.18896 20.3041C8.72361 20.1036 9.20914 19.791 9.6129 19.3872L10 19L5 14L4.6129 14.3872C4.20914 14.791 3.8965 15.2765 3.69601 15.8112Z"
+        fill="currentColor"
+      ></path>
+      <path
+        opacity="0.25"
+        d="M5 14L10 19L19.5 9.5L14.5 4.5L5 14Z"
+        fill="currentColor"
+      ></path>
+      <path
+        d="M20.8787 8.12136L19.5 9.5L14.5 4.5L15.8787 3.12135C17.0503 1.94978 18.9497 1.94978 20.1213 3.12136L20.8787 3.87872C22.0503 5.05029 22.0503 6.94978 20.8787 8.12136Z"
+        fill="currentColor"
+      ></path>
+    </svg>
+  ),
+  page: (props: IconProps) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" {...props}>
+      <path
+        opacity="0.25"
+        d="M3 4C3 2.34315 4.34315 1 6 1H15.7574C16.553 1 17.3161 1.31607 17.8787 1.87868L20.1213 4.12132C20.6839 4.68393 21 5.44699 21 6.24264V20C21 21.6569 19.6569 23 18 23H6C4.34315 23 3 21.6569 3 20V4Z"
+        fill="currentColor"
+      ></path>
+      <path
+        d="M15 1.89181C15 1.39927 15.3993 1 15.8918 1V1C16.6014 1 17.2819 1.28187 17.7836 1.78361L20.2164 4.21639C20.7181 4.71813 21 5.39863 21 6.10819V6.10819C21 6.60073 20.6007 7 20.1082 7H16C15.4477 7 15 6.55228 15 6V1.89181Z"
+        fill="currentColor"
+      ></path>
+      <path
+        d="M9 12C8.44771 12 8 12.4477 8 13C8 13.5523 8.44771 14 9 14H15C15.5523 14 16 13.5523 16 13C16 12.4477 15.5523 12 15 12H9Z"
+        fill="currentColor"
+      ></path>
+      <path
+        d="M9 16C8.44771 16 8 16.4477 8 17C8 17.5523 8.44771 18 9 18H12C12.5523 18 13 17.5523 13 17C13 16.4477 12.5523 16 12 16H9Z"
+        fill="currentColor"
+      ></path>
+    </svg>
+  ),
+  link: (props: IconProps) => (
     <svg
-      width="48"
-      height="48"
+      width="24px"
+      height="24px"
+      strokeWidth="1.5"
       viewBox="0 0 24 24"
-      color="hsl(0 0% 49.4%)"
       fill="none"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      stroke="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      color="currentColor"
       {...props}
     >
-      <mask id="myMask2">
-        <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
-        <circle r="9" fill="black" cx="50%" cy="23%"></circle>
-      </mask>
-      <circle
-        cx="12"
-        cy="12"
-        fill="hsl(0 0% 49.4%)"
-        mask="url(#myMask2)"
-        r="9"
-      ></circle>
-      <g stroke="currentColor" opacity="0">
-        <line x1="12" y1="1" x2="12" y2="3"></line>
-        <line x1="12" y1="21" x2="12" y2="23"></line>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-        <line x1="1" y1="12" x2="3" y2="12"></line>
-        <line x1="21" y1="12" x2="23" y2="12"></line>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-      </g>
+      <path
+        d="M14 11.998C14 9.506 11.683 7 8.857 7H7.143C4.303 7 2 9.238 2 11.998c0 2.378 1.71 4.368 4 4.873a5.3 5.3 0 001.143.124"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M10 11.998c0 2.491 2.317 4.997 5.143 4.997h1.714c2.84 0 5.143-2.237 5.143-4.997 0-2.379-1.71-4.37-4-4.874A5.304 5.304 0 0016.857 7"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+    </svg>
+  ),
+  back: (props: IconProps) => (
+    <svg
+      width="18px"
+      height="18px"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      fill="none"
+      color="currentColor"
+      {...props}
+    >
+      <path
+        d="M10.25 4.75l-3.5 3.5 3.5 3.5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+      <path
+        d="M6.75 8.25h6a4 4 0 014 4v7"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
     </svg>
   ),
 };

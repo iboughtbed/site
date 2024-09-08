@@ -33,23 +33,24 @@ const itemGroups = [
       external: false,
     },
     { label: "Photos", href: "/photos", icon: Icons.photos, external: false },
+    { label: "Blog", href: "/blog", icon: Icons.pen, external: false },
   ],
   [
     {
       label: "Twitter",
-      href: "https://twitter.com",
+      href: "https://x.com/iboughtbed",
       icon: Icons.twitter,
       external: true,
     },
     {
       label: "GitHub",
-      href: "https://github.com",
+      href: "https://github.com/iboughtbed",
       icon: Icons.github,
       external: true,
     },
     {
       label: "Mail",
-      href: "mailto:example@example.com",
+      href: "mailto:zhangalievsanzhar@gmail.com",
       icon: Icons.mail,
       external: true,
     },
@@ -94,7 +95,7 @@ export function SiteFooter() {
       id="footer"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="footer-animation fixed -bottom-2 left-1/2 z-10 flex h-[58px] w-auto -translate-x-1/2 items-end rounded-full border border-[hsl(0_0%_100%_/_0.077)] bg-background px-2 shadow-lg max-sm:bottom-0 max-sm:top-[unset] max-sm:w-[calc(100%-69px)]"
+      className="footer-animation fixed -bottom-2 left-1/2 z-10 flex h-[58px] w-auto items-end rounded-full border border-[hsl(0_0%_100%_/_0.077)] bg-background px-2 shadow-lg max-sm:bottom-0 max-sm:top-[unset] max-sm:w-[calc(100%-69px)]"
     >
       <div className="flex w-full items-end gap-2 py-2 max-sm:h-[72px] max-sm:overflow-x-auto max-sm:overflow-y-hidden">
         {itemGroups.map((group, groupIndex) => (
@@ -208,6 +209,8 @@ function FooterItem({
           ref={ref}
           aria-label={item.label}
           href={item.href}
+          rel={item.external ? "noopener noreferrer" : undefined}
+          target={item.external ? "_blank" : undefined}
           data-item-index={index}
           className="footer-item"
           // onMouseEnter={() => setItemHovered(true)}

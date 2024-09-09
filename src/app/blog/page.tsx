@@ -12,8 +12,8 @@ export default function BlogPage() {
         {posts
           .sort((a, b) => {
             return (
-              new Date(b.metadata.publishedAt).getTime() -
-              new Date(a.metadata.publishedAt).getTime()
+              new Date(b.metadata.date).getTime() -
+              new Date(a.metadata.date).getTime()
             );
           })
           .map((post, i) => (

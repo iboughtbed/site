@@ -80,6 +80,11 @@ html {
   scroll-behavior: smooth;
 }
 
+::selection {
+  background: rgb(255, 249, 168);
+  color: rgb(0, 0, 0);
+}
+
 *:focus-visible {
   outline: none;
 }
@@ -298,8 +303,70 @@ a {
   }
 }
 
-.shiki {
+/* shiki */
+
+/* .shiki {
   background: #1c1c1c !important;
   margin-top: 0px;
   margin-bottom: 0px;
+} */
+
+.codeblock-code {
+  display: block;
+  background: #1c1c1c;
+}
+
+.codeblock-pre {
+  background: #1c1c1c;
+  padding: 12px 0;
+  white-space: pre;
+  overflow-x: auto;
+  position: relative;
+  display: block;
+  line-height: 1;
+}
+
+.line {
+  display: inline-block;
+  padding: 0 16px;
+  font-size: 13px;
+  line-height: 18px;
+  position: relative;
+  width: 100%;
+  /* font-family: var(--font-geist-mono); */
+}
+
+.line.highlighted::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  border-left: 2px solid #0091ff;
+  background: #1677fe22;
+  color: #52a9ff;
+}
+
+.line.diff.add::before {
+  content: "+";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  padding-left: 4px;
+  border-left: 2px solid #3fb9504d;
+  background: #2ea04326;
+  color: #16a34a;
+}
+
+.line.diff.remove::before {
+  content: "-";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  padding-left: 4px;
+  border-left: 2px solid #dc2626;
+  background: #f8514926;
+  color: #dc2626;
 }

@@ -13,6 +13,7 @@ type Metadata = {
   description: string;
   publishedAt: string;
   authors?: { url: string; name: string; image: string }[];
+  date: string;
 };
 
 type TableOfContents = {

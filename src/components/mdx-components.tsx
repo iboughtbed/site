@@ -1,9 +1,13 @@
+import rehypeShiki from "@shikijs/rehype";
+import {
+  transformerMetaHighlight,
+  transformerNotationDiff,
+} from "@shikijs/transformers";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import * as React from "react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
-import { codeToHtml, createHighlighter, ThemeInput } from "shiki";
 
 import vesperTheme from "@/lib/themes/vesper.json";
 import { cn } from "@/lib/utils";
@@ -16,35 +20,11 @@ import { cn } from "@/lib/utils";
 // }
 
 const components = {
-  code: async ({
-    children,
-    className,
-    ...props
-  }: React.HTMLAttributes<HTMLElement>) => {
-    const highlighter = await createHighlighter({
-      langs: ["ts", "js", "tsx", "jsx", "css", "mdx", "md", "json"],
-      themes: [],
-    });
-
-    await highlighter.loadTheme(vesperTheme as ThemeInput);
-
-    const html = await codeToHtml(children as string, {
-      lang: "ts",
-      theme: "vesper",
-    });
-
-    highlighter.dispose();
-
-    return (
-      <div
-        dangerouslySetInnerHTML={{ __html: html }}
-        className={cn("h-full w-full bg-[#1c1c1c]", className)}
-        {...props}
-      />
-    );
+  code: async ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => {
+    return <code className={cn("codeblock-code", className)} {...props} />;
   },
   pre: ({ children, ...props }: React.HTMLAttributes<HTMLPreElement>) => (
-    <pre {...props} className="bg-[#1c1c1c] px-0 py-4">
+    <pre {...props} className="codeblock-pre">
       {children}
     </pre>
   ),
@@ -73,6 +53,17 @@ export function Mdx({ source }: { source: string }) {
       options={{
         mdxOptions: {
           rehypePlugins: [
+            [
+              rehypeShiki,
+              {
+                theme: vesperTheme,
+                langs: ["ts", "js", "tsx", "jsx", "css", "mdx", "md", "json"],
+                transformers: [
+                  transformerNotationDiff(),
+                  transformerMetaHighlight(),
+                ],
+              },
+            ],
             rehypeSlug,
             [
               rehypeAutolinkHeadings,

@@ -26,11 +26,11 @@ export default function BlogPage() {
                 animation: `fadeIn 0.5s ease-out ${i * 0.1}s forwards`,
               }}
             >
-              <span className="font-normal leading-7 text-[#6f6f6f] dark:text-[#a0a0a0]">
+              <span className="text-sm font-normal leading-7 text-[#6f6f6f] dark:text-[#a0a0a0]">
                 {post.metadata.title}
               </span>
               <div className="grow"></div>
-              <span className="text-sm font-normal leading-7 text-[#707070]">
+              <span className="shrink-0 text-sm font-normal leading-7 text-[#707070]">
                 {post.metadata.publishedAt}
               </span>
             </Link>

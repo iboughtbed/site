@@ -1,0 +1,65 @@
+---
+title: How to keep your Next.js application secure
+description: Next.js server actions, server only code and how to secure them
+publishedAt: September 2024
+date: 09.09.24
+---
+
+
+## Server Actions
+
+Let's say we have a page for deleting user with a button and a handler that calls the server action.
+
+```tsx {2,5,8}
+import { deleteUser } from "./action";
+import { auth } from "./auth";
+
+export default async function DeleteUserPage() {
+  const { userId } = await auth();
+
+  async function handleDelete() {
+    await deleteUser(userId);
+  }
+
+  return (
+    <div>
+      <button onClick={handleDelete}>delete</button>
+    </div>
+  )
+}
+```
+
+```ts
+"use server";
+
+// exporting the function and making it asynchronous turns it into a server action
+
+export async function deleteUser(id: string) {
+  await db.user.delete(id);
+}
+```
+
+Now, what might seem to be a problem? The problem is that now anyone can delete any user.  
+
+But How?
+
+- The server action is a POST endpoint than can be accessed by anyone
+- Anyone can call the server action and delete any user if they have their id
+
+Solution
+
+```ts
+"use server";
+
+export async function deleteUser(id: string) {
+  await db.user.delete(id); // [!code --]
+
+  const { userId } = await auth(); // [!code ++]
+
+  if (userId !== id) { // [!code ++]
+    throw new Error("Unauthorized") // [!code ++]
+  } // [!code ++]
+
+  await db.user.delete(id); // [!code ++]
+}
+```

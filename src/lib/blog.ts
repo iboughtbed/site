@@ -14,6 +14,7 @@ type Metadata = {
   publishedAt: string;
   authors?: { url: string; name: string; image: string }[];
   date: string;
+  pinned?: number;
 };
 
 type TableOfContents = {

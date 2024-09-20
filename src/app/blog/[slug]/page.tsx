@@ -3,9 +3,17 @@ import { notFound } from "next/navigation";
 
 import { CopyButton } from "@/components/copy-button";
 import { Icons } from "@/components/icons";
-import { Mdx } from "@/components/mdx-components";
+import { Mdx } from "@/components/mdx/mdx-components";
 import { getBlogPosts } from "@/lib/blog";
 import { SectionAuthors } from "../_components/section-authors";
+
+export async function generateStaticParams() {
+  const posts = getBlogPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
 
 export default function Blog({ params }: { params: { slug: string } }) {
   const post = getBlogPosts().find((post) => post.slug === params.slug);

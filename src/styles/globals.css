@@ -273,7 +273,8 @@ a {
   position: fixed;
   top: 0px;
   transform: translate(-260px, 121px);
-  width: fit-content;
+  /* width: fit-content; */
+  width: 240px;
 }
 
 .section-authors-link[data-active="true"] img {
@@ -375,4 +376,46 @@ a {
   border-left: 2px solid #dc2626;
   background: #f8514926;
   color: #dc2626;
+}
+
+/* Craft Page */
+
+.craft-card-interactive {
+  cursor: pointer;
+}
+
+.craft-card-inner[data-theme="dark"] {
+  color: #ededed;
+}
+
+.craft-card-inner[data-theme="light"] {
+  color: #171717;
+}
+
+.craft-card-inner[data-theme="light"]::after {
+  background: linear-gradient(transparent, 50%, rgba(255, 255, 255, 0.9));
+}
+
+.craft-card-inner::after {
+  content: "";
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    50%,
+    rgba(0, 0, 0, 0)
+  );
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  bottom: -64px;
+  transition: opacity 200ms;
+  pointer-events: none;
+}
+
+.craft-card-info[data-theme="light"] .craft-card-date {
+  color: rgb(0 0 0 / 56%);
+}
+
+.craft-card-info[data-theme="dark"] .craft-card-date {
+  color: rgba(255, 255, 255, 0.592);
 }

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { CopyButton } from "@/components/copy-button";
 import { Icons } from "@/components/icons";
 import { Mdx } from "@/components/mdx/mdx-components";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { getBlogPosts } from "@/lib/blog";
 import { SectionAuthors } from "../_components/section-authors";
 
@@ -38,29 +39,31 @@ export default function Blog({ params }: { params: { slug: string } }) {
             />
             Blog
           </Link>
-          <nav
-            className="mt-[60px]"
-            style={{
-              opacity: 0,
-              animation: "fadeIn 0.5s ease forwards",
-            }}
-          >
-            <ul className="flex flex-col flex-nowrap gap-2.5">
-              {post.toc.map((item) => (
-                <li
-                  key={item.url}
-                  className="flex text-[13px] text-neutral-700 dark:text-neutral-400"
-                >
-                  <Link
-                    href={item.url}
-                    className="-m-[3px] rounded-md p-[3px] transition-colors hover:text-black dark:hover:text-neutral-200"
+          <ScrollArea className="h-[calc(100vh-121px-60px)]">
+            <nav
+              className="mt-[60px]"
+              style={{
+                opacity: 0,
+                animation: "fadeIn 0.5s ease forwards",
+              }}
+            >
+              <ul className="mb-12 flex flex-col flex-nowrap gap-2.5">
+                {post.toc.map((item) => (
+                  <li
+                    key={item.url}
+                    className="flex text-[13px] text-neutral-700 dark:text-neutral-400"
                   >
-                    {item.value}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+                    <Link
+                      href={item.url}
+                      className="-m-[3px] rounded-md p-[3px] transition-colors hover:text-black dark:hover:text-neutral-200"
+                    >
+                      {item.value}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </ScrollArea>
         </div>
         <div className="mb-8 flex flex-nowrap items-center justify-start">
           <div className="flex flex-col justify-start gap-2">

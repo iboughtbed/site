@@ -289,7 +289,7 @@ a {
     left: -120px;
   }
 
-  .blog-nav-bar nav {
+  .blog-nav-bar div {
     display: none;
   }
 }

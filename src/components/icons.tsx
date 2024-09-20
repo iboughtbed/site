@@ -249,4 +249,24 @@ export const Icons = {
       ></path>
     </svg>
   ),
+  arrow: (props: IconProps) => (
+    <svg
+      data-arrow=""
+      width="16px"
+      height="16px"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      fill="none"
+      color="currentColor"
+      {...props}
+    >
+      <path
+        d="M6 12h12.5m0 0l-6-6m6 6l-6 6"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      ></path>
+    </svg>
+  ),
 };

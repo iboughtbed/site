@@ -11,6 +11,7 @@ import rehypeSlug from "rehype-slug";
 
 import vesperTheme from "@/lib/themes/vesper.json";
 import { cn } from "@/lib/utils";
+import { Video } from "./video";
 
 // function CodeBlock({
 //   children,
@@ -31,17 +32,8 @@ const components = {
   Image: (props: React.ComponentProps<typeof Image>) => (
     <Image {...props} alt={props.alt} />
   ),
-  Video: ({ className, ...props }: React.HTMLAttributes<HTMLVideoElement>) => (
-    <div className="my-3 aspect-video rounded-xl">
-      <video
-        {...props}
-        className={cn("w-full rounded-md object-contain", className)}
-        playsInline
-        loop
-        autoPlay
-        muted
-      />
-    </div>
+  Video: (props: React.HTMLAttributes<HTMLVideoElement>) => (
+    <Video {...props} />
   ),
 };
 

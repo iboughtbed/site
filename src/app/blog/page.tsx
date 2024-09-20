@@ -11,6 +11,13 @@ export default function BlogPage() {
       <section className="mt-8 flex flex-col gap-[28px]">
         {posts
           .sort((a, b) => {
+            if (a.metadata.pinned && b.metadata.pinned) {
+              return b.metadata.pinned - a.metadata.pinned;
+            }
+
+            if (a.metadata.pinned && !b.metadata.pinned) return -1;
+            if (!a.metadata.pinned && b.metadata.pinned) return 1;
+
             return (
               new Date(b.metadata.date).getTime() -
               new Date(a.metadata.date).getTime()

@@ -67,7 +67,6 @@ const config: Config = {
             "blockquote p:first-of-type::after": { content: "none" },
           },
         },
-        
       },
     },
   },

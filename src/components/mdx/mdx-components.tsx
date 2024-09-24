@@ -9,7 +9,7 @@ import * as React from "react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 
-import vesperTheme from "@/lib/themes/vesper.json";
+// import vesperTheme from "@/lib/themes/vesper.json";
 import { cn } from "@/lib/utils";
 import { Video } from "./video";
 
@@ -48,7 +48,7 @@ export function Mdx({ source }: { source: string }) {
             [
               rehypeShiki,
               {
-                theme: vesperTheme,
+                theme: "vesper",
                 langs: ["ts", "js", "tsx", "jsx", "css", "mdx", "md", "json"],
                 transformers: [
                   transformerNotationDiff(),

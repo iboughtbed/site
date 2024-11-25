@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  maximumScale: 1,
+  // maximumScale: 1,
   // colorScheme: []
 };
 

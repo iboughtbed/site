@@ -1,0 +1,121 @@
+---
+title: Partial Prerendering in Next.js 15
+description: Next.js Partial Prerendering, and how does it work.
+publishedAt: November 2024
+date: 2024.11.25
+---
+
+## Partial Prerendering
+
+Partial Prerendering - Combining strength of both Static and Dynamic Rendering.
+The new Next.js 15 offers an experimental future called partial prerendering.
+
+> PPR enables your Next.js server to immediately send prerendered content. 
+> 
+> To prevent client to server waterfalls, dynamic components begin streaming from the server in parallel while serving the initial prerender. This ensures dynamic components can begin rendering before client JavaScript has been loaded in the browser. 
+>  
+> To prevent creating many HTTP requests for each dynamic component, PPR is able to combine the static prerender and dynamic components together into a single HTTP request. This ensures there are not multiple network roundtrips needed for each dynamic component. 
+
+This means that both renders stream start at the same time. But how does it work?
+
+## React Prerender and Resume
+
+```tsx
+import { prerender } from "react-dom/static.edge";
+
+const { prelude, postponed } = await prerender(<App />, options)
+```
+
+Under the hood, it is simple React. Here you can see react function used for prerendering the content.
+
+The prerender function returns two entities, prelude and postponed.
+
+prelude is the static shell, the initial HTML content. postponed is a data structure or a JSON, containing information about static shell.
+
+When this function runs, it's outputting the static shell (HTML), and the postponed informs React about the parts of the static shell, to resume the render.
+
+```tsx
+import { resume } from "react-dom/server.edge";
+
+const stream = await resume(<App />, postponed, options)
+```
+
+<Image
+  alt="Single HTTP Response Stream"
+  src="https://utfs.io/f/oPLsS5Cstz1w0sPI5boQM1ysu7AVBJoSp2Hb86LIE4mW0ahr"
+  width={665}
+  height={373}
+/>
+
+The resume function will attach the stream of the data to the static shell.
+
+## Suspense Boundaries
+
+```tsx
+<Suspense fallback={<CartSkeleton />}>
+	<Cart cart={cart} />
+</Suspense>
+```
+
+When the request is made, Next.js will serve the fallback cart skeleton component as the static shell, and the cart component will be rendered with resume and streamed.
+
+## Asynchronous APIs
+
+<Image
+  alt="Next.js APIs turning from synchronous to asynchronous"
+  src="https://utfs.io/f/oPLsS5Cstz1wCvxRxogWcuSlwZhBHqV4vj3KDiACIoEpJm1G"
+  width={1073}
+  height={565}
+/>
+
+And now how do we access the request data? How do we use functions like headers, cookies, params, etc?
+
+The reason why props and other Next.js functions were turned into asynchronous is because. The React.unstable_postpone(reason) function will throw errors, and is used by Next.js to ensure it won't resolve during static prerendering.
+
+## Node.js
+
+Node.js is a single threaded application which can only run one task at a time.
+
+Tasks like I/O will be offloaded to native code.
+
+The Node.js Event Loop will execute async methods using `libuv` which is a low-level library for Node.js in C++.
+
+```tsx
+// next.js takes adavantage
+// prerendering using tasks
+
+import { prerender } from "react-dom/server.edge";
+
+const controller = new AbortController();
+const { prelude, postponed } = new Promise((resolve, reject) => {
+
+	let result
+	setImmediate(() => {
+		try {
+			result = prerender(<App />, { signal: controller.signal })
+		} catch (err) {
+			reject(err)
+		}
+	})
+	setImmediate(() => {
+		controller.abort()
+		resolve(result)
+	})
+})
+```
+
+The `setImmediate` function will execute after other queues are executed.
+
+Any function passed as the `setImmediate()` argument is a callback that's executed in the next iteration of the event loop.
+
+How is `setImmediate()` different from `setTimeout(() => {}, 0)` (passing a 0ms timeout), and from `process.nextTick()` and `Promise.then()`?
+
+A function passed to `process.nextTick()` is going to be executed on the current iteration of the event loop, after the current operation ends. This means it will always execute before `setTimeout` and `setImmediate`.
+
+A `setTimeout()` callback with a 0ms delay is very similar to `setImmediate()`. The execution order will depend on various factors, but they will be both run in the next iteration of the event loop.
+
+A `process.nextTick` callback is added to `process.nextTick` queue. A `Promise.then()` callback is added to promises microtask queue. A `setTimeout`, `setImmediate` callback is added to macrotask queue.
+
+Event loop executes tasks in `process.nextTick` queue first, and then executes promises microtask queue, and then executes macrotask queue.
+
+Here is an example to show the order between `setImmediate()`, `process.nextTick()` and `Promise.then()`:

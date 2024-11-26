@@ -135,3 +135,39 @@ A `process.nextTick` callback is added to `process.nextTick` queue. A `Promise.t
 Event loop executes tasks in `process.nextTick` queue first, and then executes promises microtask queue, and then executes macrotask queue.
 
 Here is an example to show the order between `setImmediate()`, `process.nextTick()` and `Promise.then()`:
+
+## Event Loop Example
+
+```tsx
+async function prerender() {
+    console.log("prerendering...")
+    
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    console.log("async effect");
+}
+
+const {} = new Promise((resolve, reject) => {
+    let result
+    
+    setImmediate(() => {
+        try {
+            result = prerender()
+        } catch (err) {
+            reject(err)
+        }
+    })
+    
+    setImmediate(() => {
+        console.log("aborting...")
+        resolve(result)
+    })
+})
+```
+
+Output will be
+
+```
+prerendering...
+abroting...
+async effect...
+```

@@ -102,7 +102,23 @@ const { prelude, postponed } = new Promise((resolve, reject) => {
 		resolve(result)
 	})
 })
+
+// App.tsx
+
+export default async function App() {
+	await fetch("...").then("...")
+}
 ```
+
+Two Macro Tasks are queued, and they will execute accordingly.
+
+Event Loop Sequence (Top-Level Callbacks):
+
+1. First macrotask (prerendering) runs
+2. Second macrotask (aborting) runs immediately after
+3. The fetch() is aborted before it can complete
+
+You can see that if any other asynchronous effects are used (fetch, etc).
 
 The `setImmediate` function will execute after other queues are executed.
 

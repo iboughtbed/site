@@ -8,6 +8,7 @@ import Image from "next/image";
 import * as React from "react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
+// import remarkGfm from "remark-gfm";
 
 import vesper from "@/lib/themes/vesper.json";
 import { cn } from "@/lib/utils";
@@ -29,8 +30,8 @@ const components = {
       {children}
     </pre>
   ),
-  Image: (props: React.ComponentProps<typeof Image>) => (
-    <Image {...props} alt={props.alt} />
+  Image: ({ className, ...props }: React.ComponentProps<typeof Image>) => (
+    <Image {...props} alt={props.alt} className={cn(className, "w-full")} />
   ),
   Video: (props: React.HTMLAttributes<HTMLVideoElement>) => (
     <Video {...props} />
@@ -44,6 +45,7 @@ export function Mdx({ source }: { source: string }) {
       components={{ ...components }}
       options={{
         mdxOptions: {
+          // remarkPlugins: [remarkGfm],
           rehypePlugins: [
             [
               rehypeShiki,

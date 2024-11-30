@@ -139,11 +139,14 @@ Here is an example to show the order between `setImmediate()`, `process.nextTick
 ## Event Loop Example
 
 ```tsx
-async function prerender() {
-    console.log("prerendering...")
+function prerender() {
+    console.log("starting the prerender...")
     
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("async effect");
+    new Promise((resolve) => {
+        setTimeout(() => resolve("async effect..."), 1000)
+    }).then((message) => console.log(message))
+
+    console.log("prerender static shell...")
 }
 
 const {} = new Promise((resolve, reject) => {
@@ -167,7 +170,8 @@ const {} = new Promise((resolve, reject) => {
 Output will be
 
 ```
-prerendering...
-abroting...
+starting the prerender...
+prerender static shell...
+aborting...
 async effect...
 ```

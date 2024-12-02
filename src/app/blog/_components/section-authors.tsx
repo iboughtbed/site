@@ -33,11 +33,7 @@ export function SectionAuthors({ authors }: SectionAuthorsProps) {
           }
         });
       },
-      {
-        // threshold: [0, 0.5],
-        // rootMargin: "top right bottom left",
-        rootMargin: "0px 0px -100% 0px",
-      },
+      { rootMargin: "0px 0px -100% 0px" },
     );
 
     const contentElement = document.querySelector(".prose");
@@ -51,43 +47,31 @@ export function SectionAuthors({ authors }: SectionAuthorsProps) {
     return () => observer.disconnect();
   }, [contentInView]);
 
-  const MotionLink = motion.create(Link);
-
   return (
     <div className="fixed left-1/2 top-10 z-[1] -translate-x-1/2 -translate-y-1/2">
       <motion.div
-        layout
-        className="flex flex-nowrap gap-1 bg-[#f3f3f3] p-1 text-neutral-700 transition-all hover:bg-[#f3f3f3]/70 dark:bg-[#232323] dark:text-neutral-400 dark:hover:bg-[#232323]/70"
-        initial={{ opacity: 0, borderRadius: "9999px", scale: 1 }}
+        layout="size"
+        className="flex flex-nowrap items-center gap-1 bg-[#f3f3f3] p-1 text-neutral-700 transition-all duration-300 ease-in-out hover:bg-[#f3f3f3]/70 dark:bg-[#232323] dark:text-neutral-400 dark:hover:bg-[#232323]/70"
+        initial={{ opacity: 0, borderRadius: "9999px" }}
         animate={{ opacity: 1 }}
-        style={
-          {
-            // scale: containerScale,
-            // borderRadius: containerBorderRadius,
-          }
-        }
         transition={{
           opacity: { duration: 0.3, delay: 0.5 },
           layout: { duration: 0.3 },
         }}
       >
         {authors.map((author, index) => (
-          <MotionLink
+          <Link
+            key={author.name}
             data-name={author.name}
             data-active={activeAuthor === author.name}
-            key={index}
             href={author.url}
-            className="section-authors-link transition-all"
-            animate={
+            className="section-authors-link transition-all duration-300"
+            style={
               {
-                // x: activeAuthor ? -8 * index : 0,
-              }
+                "--outline-color": `${["#ca8a04", "#2563eb", "#16a34a", "#db2777"][index % 4]}`,
+                transform: `translateX(${activeAuthor ? -8 * index : 0}px)`,
+              } as React.CSSProperties
             }
-            transition={{ duration: 0.01 }}
-            style={{
-              // @ts-expect-error react css properties
-              "--outline-color": `${["#ca8a04", "#2563eb", "#16a34a", "#db2777"][index % 4]}`,
-            }}
           >
             <Image
               alt={`Avatar of ${author.name}`}
@@ -96,20 +80,30 @@ export function SectionAuthors({ authors }: SectionAuthorsProps) {
               height={24}
               className="h-6 w-6 rounded-full shadow-lg"
             />
-          </MotionLink>
+          </Link>
         ))}
 
-        {activeAuthor && (
-          <motion.div
-            className="ml-2 mr-2 flex items-center justify-center text-sm font-normal leading-4 text-foreground"
-            initial={{ opacity: 0, filter: "blur(3px)", x: "-5px" }}
-            animate={{ opacity: 1, filter: "blur(0px)", x: "0px" }}
-            transition={{ duration: 0.2 }}
-            key={activeAuthor} // This ensures the animation runs every time the author changes
-          >
-            {activeAuthor}
-          </motion.div>
-        )}
+        <div
+          className="overflow-hidden transition-[width,margin] duration-300 ease-in-out"
+          style={{
+            width: activeAuthor ? "auto" : 0,
+            marginLeft: activeAuthor ? "0.5rem" : 0,
+            marginRight: activeAuthor ? "0.5rem" : 0,
+          }}
+        >
+          {activeAuthor && (
+            <motion.div
+              className="flex items-center justify-center whitespace-nowrap text-sm font-normal leading-4 text-foreground blur-sm"
+              initial={{ opacity: 0, y: 10, filter: "blur(4px)" }}
+              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              key={activeAuthor}
+            >
+              {activeAuthor}
+            </motion.div>
+          )}
+        </div>
       </motion.div>
     </div>
   );

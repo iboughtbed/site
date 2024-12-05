@@ -9,8 +9,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://iboughtbed.vercel.app"),
-  title: "iboughtbed",
+  metadataBase: new URL("https://sanzhar.xyz"),
+  title: "Zhangaliyev Sanzhar | iboughtbed",
   description: "Software engineer, designer and shitposter",
 };
 

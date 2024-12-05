@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sanzhar.xyz"),
-  title: "Zhangaliyev Sanzhar | iboughtbed",
+  title: "Sanzhar Zhangaliyev",
   description: "Software engineer, designer and shitposter",
 };
 

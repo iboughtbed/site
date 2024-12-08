@@ -29,7 +29,7 @@ export default function Craft({ params }: { params: { slug: string } }) {
       <div className="flex flex-col">
         <div className="blog-nav-bar">
           <Link
-            href="/blog"
+            href="/craft"
             className="-m-[3px] inline-flex w-fit items-center gap-1 rounded-md p-[3px] text-sm leading-5 text-neutral-700 transition-colors hover:text-black dark:text-neutral-400 dark:hover:text-neutral-200"
           >
             <Icons.back

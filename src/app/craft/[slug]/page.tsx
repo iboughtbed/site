@@ -6,18 +6,18 @@ import { Icons } from "@/components/icons";
 import { Mdx } from "@/components/mdx/mdx-components";
 import { PostAuthors } from "@/components/post-authors";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { getBlogPosts } from "@/lib/blog";
+import { getCraftPosts } from "@/lib/craft";
 
 export async function generateStaticParams() {
-  const posts = getBlogPosts();
+  const posts = getCraftPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-export default function Blog({ params }: { params: { slug: string } }) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug);
+export default function Craft({ params }: { params: { slug: string } }) {
+  const post = getCraftPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
@@ -37,7 +37,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                 transform: "translateY(-1px)",
               }}
             />
-            Blog
+            Craft
           </Link>
           <ScrollArea className="h-[calc(100vh-121px-60px)]">
             <nav

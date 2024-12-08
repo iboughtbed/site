@@ -15,3 +15,11 @@ export function slugify(str: string) {
     .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
     .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
+
+export function splitIntoColumns<T>(items: T[], count = 3) {
+  const columns = Array.from({ length: count }, () => [] as T[]);
+  items.forEach((item, index) => {
+    columns[index % count]?.push(item);
+  });
+  return columns;
+}

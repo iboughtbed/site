@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 
-interface SectionAuthorsProps {
+interface PostAuthorsProps {
   authors: {
     url: string;
     name: string;
@@ -13,7 +13,7 @@ interface SectionAuthorsProps {
   }[];
 }
 
-export function SectionAuthors({ authors }: SectionAuthorsProps) {
+export function PostAuthors({ authors }: PostAuthorsProps) {
   const [activeAuthor, setActiveAuthor] = React.useState<string | null>(null);
   const [contentInView, setContentInView] = React.useState(false);
 

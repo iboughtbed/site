@@ -400,6 +400,10 @@ a {
 
 /* Craft Page */
 
+.craft-placeholder {
+  transform: scale(1) translateZ(0);
+}
+
 .craft-card-interactive {
   cursor: pointer;
 }
@@ -438,4 +442,17 @@ a {
 
 .craft-card-info[data-theme="dark"] .craft-card-date {
   color: rgba(255, 255, 255, 0.592);
+}
+
+@media (max-width: 960px) {
+  .craft-grid {
+    opacity: 0;
+    animation: fade 0.25s ease 0.2s forwards;
+  }
+}
+
+@keyframes fade {
+  100% {
+    opacity: 1;
+  }
 }

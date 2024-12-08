@@ -57,11 +57,12 @@ export default function ProjectsPage() {
             </CrypticText>
             <div
               className="cryptic-list-line"
-              style={{
-                // @ts-expect-error react css properties
-                "--after-delay": `${0.1 * i}s`,
-                "--before-delay": `${(0.1 * i) / 2}s`,
-              }}
+              style={
+                {
+                  "--after-delay": `${0.1 * i}s`,
+                  "--before-delay": `${(0.1 * i) / 2}s`,
+                } as React.CSSProperties
+              }
             ></div>
             <CrypticText
               className="text-sm font-normal leading-7 text-[#707070]"

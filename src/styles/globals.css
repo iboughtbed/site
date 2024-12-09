@@ -436,12 +436,27 @@ a {
   pointer-events: none;
 }
 
+.craft-card-inner[data-position="top"]::after {
+  bottom: unset;
+  top: -64px;
+  transform: rotate(180deg);
+}
+
 .craft-card-info[data-theme="light"] .craft-card-date {
   color: rgb(0 0 0 / 56%);
 }
 
 .craft-card-info[data-theme="dark"] .craft-card-date {
   color: rgba(255, 255, 255, 0.592);
+}
+
+.craft-card-info {
+  bottom: 8px;
+}
+
+.craft-card-info[data-position="top"] {
+  bottom: unset;
+  top: 8px;
 }
 
 @media (max-width: 960px) {

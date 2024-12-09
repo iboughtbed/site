@@ -39,6 +39,7 @@ export function CraftCard({ craft }: CraftCardProps) {
       <div
         className="craft-card-inner relative h-full w-full"
         data-theme={craft.theme}
+        data-position={craft.position}
       >
         <div
           style={{ aspectRatio: craft.height / craft.width }}
@@ -81,8 +82,9 @@ export function CraftCard({ craft }: CraftCardProps) {
         </div>
 
         <div
-          className="craft-card-info absolute bottom-2 z-[1] flex h-8 w-full items-center justify-between gap-3 whitespace-nowrap p-4 transition-opacity duration-200"
+          className="craft-card-info absolute z-[1] flex h-8 w-full items-center justify-between gap-3 whitespace-nowrap p-4 transition-opacity duration-200"
           data-theme={craft.theme}
+          data-position={craft.position}
         >
           <div className="overflow-hidden text-ellipsis whitespace-nowrap text-[13px] leading-7">
             {craft.title}
@@ -103,6 +105,8 @@ export function CraftCard({ craft }: CraftCardProps) {
       <Link
         ref={ref}
         href={craft.slug ? `/craft/${craft.slug}` : (craft.href ?? "#")}
+        rel={craft.href ? "noopener noreferrer" : undefined}
+        target={craft.href ? "_blank" : undefined}
         className={cn(className, "group block cursor-pointer p-1")}
         aria-label={craft.title}
       >

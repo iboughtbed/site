@@ -1,5 +1,6 @@
-import { AnimatedName } from "@/components/animated-name";
 import Link from "next/link";
+
+import { AnimatedName } from "@/components/animated-name";
 
 export default function Home() {
   return (
@@ -32,8 +33,11 @@ export default function Home() {
           professional shit-posting
         </p>
         <p>
-          I&apos;m inspired to learn new things and{" "}
-          <span className="">create and design</span> products.
+          I&apos;m inspired to learn new things, and to{" "}
+          <Link href="/craft" className="underline underline-offset-2">
+            create and design
+          </Link>{" "}
+          products.
         </p>
       </div>
     </main>

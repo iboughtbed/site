@@ -18,6 +18,22 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/projects/parallax-podcast",
+        destination: "https://prllx.sanzhar.xyz",
+        basePath: false,
+        permanent: false,
+      },
+      {
+        source: "/projects/nis-insights",
+        destination: "https://nis-insights.org",
+        basePath: false,
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

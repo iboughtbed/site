@@ -39,6 +39,22 @@ export default function Home() {
           </Link>{" "}
           products.
         </p>
+        <p>
+          <Link
+            href="/Sanzhar-Zhangaliyev-CV.pdf"
+            className="underline underline-offset-2"
+          >
+            [Resume]
+          </Link>{" "}
+          <Link
+            href="https://linkedin.com/in/sanzhar-zhangaliyev"
+            rel="noopener noreferrer"
+            target="_blank"
+            className="underline underline-offset-2"
+          >
+            [Linkedin]
+          </Link>
+        </p>
       </div>
     </main>
   );

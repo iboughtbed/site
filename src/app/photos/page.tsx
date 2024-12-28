@@ -1,11 +1,12 @@
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function PhotosPage() {
-  const gallery = 9;
+  // const gallery = 9;
 
   return (
-    <main className="relative mx-auto flex min-h-screen flex-col p-2">
-      <ul
+    <main className="relative mx-auto flex min-h-screen flex-col items-center justify-center p-2">
+      <h1>Nothing to see here yet...</h1>
+      {/* <ul
         id="gallery"
         className="grid h-full w-full grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3"
       >
@@ -22,7 +23,7 @@ export default function PhotosPage() {
             />
           </li>
         ))}
-      </ul>
+      </ul> */}
     </main>
   );
 }

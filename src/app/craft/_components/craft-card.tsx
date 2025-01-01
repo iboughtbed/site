@@ -74,7 +74,7 @@ export function CraftCard({ craft }: CraftCardProps) {
               alt={craft.title}
               src={craft.src}
               style={{ aspectRatio: craft.height / craft.width }}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 50vw"
               width={craft.width}
               height={craft.height}
             />

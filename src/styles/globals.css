@@ -459,6 +459,12 @@ a {
   top: 8px;
 }
 
+@media (max-width: 480px) {
+  .craft-grid {
+    margin-bottom: 96px;
+  }
+}
+
 @media (max-width: 960px) {
   .craft-grid {
     opacity: 0;

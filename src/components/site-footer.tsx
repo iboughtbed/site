@@ -178,21 +178,35 @@ function FooterItem({
     );
   });
 
-  const size = useTransform(distance, [0, MAX_DISTANCE], [MAX_SIZE, MIN_SIZE]);
-  const smoothSize = useSpring(size, { damping: 20, stiffness: 200 });
+  const size = useTransform(distance, [0, MAX_DISTANCE], [MAX_SIZE, MIN_SIZE], {
+    clamp: true,
+  });
+  const smoothSize = useSpring(size, {
+    damping: 20,
+    stiffness: 200,
+    mass: 0.5,
+    restSpeed: 0.5,
+  });
 
   const springY = useSpring(0, { stiffness: 150, damping: 12, mass: 0.9 });
 
   function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
     if (ref.current) {
+      if (e.detail === 0) {
+        springY.set(-30);
+        setTimeout(() => {
+          springY.set(0);
+        }, 300);
+        return;
+      }
+
       const rect = ref.current.getBoundingClientRect();
       const clickY = e.clientY - rect.top;
       const itemHeight = rect.height;
-
       const jumpHeight = -60 * (0.8 - 0.6 * (clickY / itemHeight));
       const jumpDuration = 300;
 
-      springY.set(isDesktop ? jumpHeight : -20);
+      springY.set(isDesktop ? jumpHeight : -30);
       setTimeout(() => {
         springY.set(0);
       }, jumpDuration);
@@ -204,7 +218,7 @@ function FooterItem({
 
   return (
     <Tooltip>
-      <TooltipTrigger>
+      <TooltipTrigger asChild>
         <MotionLink
           ref={ref}
           href={item.href}

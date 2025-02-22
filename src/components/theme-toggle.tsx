@@ -63,6 +63,14 @@ export function ThemeToggle({
     setTheme(theme === "light" ? "dark" : "light");
 
     if (ref.current) {
+      if (e.detail === 0) {
+        springY.set(-30);
+        setTimeout(() => {
+          springY.set(0);
+        }, 300);
+        return;
+      }
+
       const rect = ref.current.getBoundingClientRect();
       const clickY = e.clientY - rect.top;
       const itemHeight = rect.height;

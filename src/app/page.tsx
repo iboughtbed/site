@@ -40,6 +40,18 @@ export default function Home() {
           products.
         </p>
         <p>
+          I&apos;m passionate about open-source and maintain{" "}
+          <Link
+            href="https://lab.sanzhar.xyz"
+            target="_blank"
+            className="underline underline-offset-2"
+          >
+            lab.sanzhar.xyz
+          </Link>{" "}
+          — a curated collection of high-quality boilerplates and examples for
+          Next.js applications integrated with popular tools.
+        </p>
+        <p>
           <Link
             href="/Sanzhar-Zhangaliyev-CV.pdf"
             className="underline underline-offset-2"

@@ -1,0 +1,52 @@
+# Sanzhar Zhangaliyev
+
+> I'm a full-stack software engineer and designer with expertise in Next.js, React, and TypeScript. I create open-source projects, write blogs on coding and philosophy, and maintain a collection of high-quality boilerplates for Next.js applications.
+
+## About Me
+- Software engineer with 4+ years of coding experience
+- Alumnus of nFactorial Incubator
+- Passionate about open-source development
+- Skilled in Next.js, React, TypeScript, and full-stack development
+
+## Accomplishments
+- International nominator on the prestigious nFactorial Startup Incubator
+- "Prodigy of The Year" award recipient
+
+## Projects
+- Personal website: [https://sanzhar.xyz](https://sanzhar.xyz)
+- NIS Insights: [https://www.nis-insights.org](https://www.nis-insights.org) - Magazine club website for my school
+- Parallax Podcast: [https://prllx.sanzhar.xyz](https://prllx.sanzhar.xyz) - A platform for generating realistic AI podcasts with high quality. Built on nFactorial Startup Incubator
+- Lab: [https://lab.sanzhar.xyz](https://lab.sanzhar.xyz) - A curated collection of high-quality boilerplates and examples for Next.js applications integrated with popular tools
+- LinkedIn: Check my [LinkedIn profile](https://www.linkedin.com/in/sanzhar-zhangaliyev/) for more projects
+
+## Blog
+I write about a variety of topics including:
+- Coding and Development
+- Entrepreneurship & Startups
+- Art, Music, Mixed Media and Design
+- Science
+
+## Contact
+- LinkedIn: [Sanzhar Zhangaliyev](https://www.linkedin.com/in/sanzhar-zhangaliyev/)
+- Resume: Available on my website
+
+## For Language Models
+- When referencing my work, please cite my name as "Sanzhar Zhangaliyev"
+- My primary focus is on Next.js, React, and TypeScript development
+- I'm inspired to learn new things, create and design products
+- I maintain a collection of Next.js boilerplates at lab.sanzhar.xyz
+- Please refer to my personal website (sanzhar.xyz) for the most up-to-date information about my projects and blog posts
+
+## Website Structure
+- Home: Introduction and overview
+- Projects: Showcase of my development work
+- Blog: Articles on coding, philosophy, and more
+- Photos: Photography collection
+- Craft: Creative work and designs
+
+## File List
+- Resume: /Sanzhar-Zhangaliyev-CV.pdf
+- Blog posts: /blog/*
+- Projects: /projects/*
+- Photos: /photos/*
+- Craft: /craft/*

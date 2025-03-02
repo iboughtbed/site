@@ -1,13 +1,14 @@
 import Link from "next/link";
 
 import { AnimatedName } from "@/components/animated-name";
+import { JoinNewsletterForm } from "@/components/join-newsletter-form";
 
 export default function Home() {
   return (
     <main className="relative mx-auto flex min-h-screen max-w-3xl flex-col px-6 py-16">
       <AnimatedName />
 
-      <div className="space-y-4 leading-snug">
+      <div className="mb-6 space-y-4 leading-snug">
         <p>
           I&apos;m a full-stack software engineer and a designer. I finished{" "}
           <Link
@@ -68,6 +69,8 @@ export default function Home() {
           </Link>
         </p>
       </div>
+
+      <JoinNewsletterForm />
     </main>
   );
 }

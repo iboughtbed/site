@@ -5,6 +5,7 @@ import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
 
 import { ThemeProvider } from "@/components/providers";
+import { Toaster as Sonner } from "@/components/ui/sonner";
 import { SiteFooter } from "@/components/site-footer";
 import { cn } from "@/lib/utils";
 
@@ -44,6 +45,7 @@ export default function RootLayout({
             <SiteFooter />
             <div className="bottom-screen-blur"></div>
           </div>
+          <Sonner />
         </ThemeProvider>
       </body>
     </html>

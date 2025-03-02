@@ -8,6 +8,8 @@ import { PostAuthors } from "@/components/post-authors";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { getBlogPosts } from "@/lib/blog";
 
+type Params = Promise<{ slug: string }>;
+
 export async function generateStaticParams() {
   const posts = getBlogPosts();
 
@@ -16,8 +18,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function Blog({ params }: { params: { slug: string } }) {
-  const post = getBlogPosts().find((post) => post.slug === params.slug);
+export default async function Blog({ params }: { params: Params }) {
+  const { slug } = await params;
+
+  const post = getBlogPosts().find((post) => post.slug === slug);
 
   if (!post) {
     notFound();

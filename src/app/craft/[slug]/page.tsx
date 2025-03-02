@@ -8,6 +8,8 @@ import { PostAuthors } from "@/components/post-authors";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { getCraftPosts } from "@/lib/craft";
 
+type Params = Promise<{ slug: string }>;
+
 export async function generateStaticParams() {
   const posts = getCraftPosts();
 
@@ -16,8 +18,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function Craft({ params }: { params: { slug: string } }) {
-  const post = getCraftPosts().find((post) => post.slug === params.slug);
+export default async function Craft({ params }: { params: Params }) {
+  const { slug } = await params;
+
+  const post = getCraftPosts().find((post) => post.slug === slug);
 
   if (!post) {
     notFound();
@@ -84,7 +88,6 @@ export default function Craft({ params }: { params: { slug: string } }) {
         <article className="prose prose-neutral prose-quoteless min-w-full dark:prose-invert">
           <Mdx source={post.content} />
         </article>
-        <hr className="my-10 h-px bg-[#1d1d1d] dark:bg-[#ffffff20]" />
       </div>
     </main>
   );

@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { AnimatedName } from "@/components/animated-name";
-import { JoinNewsletterForm } from "@/components/join-newsletter-form";
 
 export default function Home() {
   return (
@@ -69,8 +68,6 @@ export default function Home() {
           </Link>
         </p>
       </div>
-
-      <JoinNewsletterForm />
     </main>
   );
 }

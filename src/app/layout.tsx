@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 
+import { Analytics } from "@vercel/analytics/react";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata, Viewport } from "next";
@@ -44,6 +45,7 @@ export default function RootLayout({
             <SiteFooter />
             <div className="bottom-screen-blur"></div>
           </div>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

@@ -1,13 +1,16 @@
-import "@/styles/globals.css";
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
 
-import { Analytics } from "@vercel/analytics/react";
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
-import type { Metadata, Viewport } from "next";
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
 
-import { ThemeProvider } from "@/components/providers";
-import { SiteFooter } from "@/components/site-footer";
-import { cn } from "@/lib/utils";
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sanzhar.xyz"),
@@ -15,38 +18,17 @@ export const metadata: Metadata = {
   description: "Software engineer, designer and shitposter",
 };
 
-export const viewport: Viewport = {
-  // maximumScale: 1,
-  // colorScheme: []
-};
-
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={cn(
-          "bg-background font-sans antialiased",
-          GeistSans.variable,
-          GeistMono.variable,
-        )}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div>
-            {children}
-            <SiteFooter />
-            <div className="bottom-screen-blur"></div>
-          </div>
-          <Analytics />
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

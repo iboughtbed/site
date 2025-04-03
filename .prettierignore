@@ -1,7 +1,0 @@
-*.mdx
-dist
-node_modules
-.next
-build
-.contentlayer
-apps/docs

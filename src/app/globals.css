@@ -11,6 +11,17 @@
   --font-mono: var(--font-mono);
 }
 
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #000000;

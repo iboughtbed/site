@@ -32,8 +32,9 @@ export default function Home() {
             </a>
           </div>
           <div className="flex items-center justify-center font-medium">
-            i own a computer. i am still figuring out life. <br />i like math
-            and physics. i also code and design.
+            i own a computer. i am still figuring out life.{" "}
+            <br className="hidden sm:block" />i like math and physics. i also
+            code and design.
           </div>
         </div>
       </div>

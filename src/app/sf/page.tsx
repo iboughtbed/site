@@ -18,7 +18,7 @@ export default function Page() {
     <main className="flex-1 flex flex-col">
       <div className="flex-1 font-mono flex flex-col p-8 pb-0 items-center justify-center gap-8">
         <div className="flex flex-col gap-6 w-full md:w-[28rem] text-left">
-          <div className="flex items-center justify-center gap-2 font-medium text-xs md:text-sm">
+          <div className="flex items-center md:justify-center gap-2 font-medium text-xs md:text-sm">
             <Link
               href="/"
               className="flex items-center gap-2 underline underline-offset-2"
@@ -68,7 +68,7 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="overflow-x-auto px-8 pb-8 scrollbar-hide w-full text-left flex flex-nowrap gap-4">
+      <div className="overflow-x-auto px-8 pb-8 mb-20 scrollbar-hide w-full text-left flex flex-nowrap gap-4">
         {images.map(([src, alt, width], index) => (
           <div
             key={index}

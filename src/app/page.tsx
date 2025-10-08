@@ -37,7 +37,7 @@ export default function Home() {
             <a
               href="https://x.com/iboughtbed"
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               className="flex items-center gap-2 underline underline-offset-2"
             >
               twitter
@@ -46,7 +46,7 @@ export default function Home() {
             <a
               href="https://github.com/iboughtbed"
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               className="flex items-center gap-2 underline underline-offset-2"
             >
               github

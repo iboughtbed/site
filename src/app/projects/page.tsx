@@ -37,7 +37,7 @@ export default function Page() {
             <a
               href="https://x.com/iboughtbed"
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               className="flex items-center gap-2 underline underline-offset-2"
             >
               twitter
@@ -46,7 +46,7 @@ export default function Page() {
             <a
               href="https://github.com/iboughtbed"
               target="_blank"
-              rel="noreferrer"
+              rel="noreferrer noopener"
               className="flex items-center gap-2 underline underline-offset-2"
             >
               github
@@ -61,7 +61,7 @@ export default function Page() {
                 <a
                   href="https://analog.now"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noreferrer noopener"
                   className="flex items-center gap-2 underline underline-offset-2"
                 >
                   analog
@@ -83,7 +83,7 @@ export default function Page() {
                 <a
                   href="https://prllxhq.com"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noreferrer noopener"
                   className="flex items-center gap-2 underline underline-offset-2"
                 >
                   parallax
@@ -102,7 +102,7 @@ export default function Page() {
                 <a
                   href="https://nis-insights.vercel.app"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noreferrer noopener"
                   className="flex items-center gap-2 underline underline-offset-2"
                 >
                   nis insights
@@ -114,6 +114,33 @@ export default function Page() {
                 and an experiment i made when i was 15.
               </p>
             </div>
+
+            {/* <div className="flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <a
+                  href="https://github.com/iboughtbed/trpc-to-mcp"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex items-center gap-2 underline underline-offset-2"
+                >
+                  trpc-to-mcp
+                </a>
+                <p>2025</p>
+              </div>
+              <p className="text-foreground/80">
+                a library to convert trpc routers and procedures to mcp
+                handlers, tools, and servers; on{" "}
+                <a
+                  href="https://trpc.io/awesome"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-foreground underline underline-offset-2"
+                >
+                  trpc.io/awesome
+                </a>{" "}
+                community tools collection.
+              </p>
+            </div> */}
           </div>
         </div>
       </div>

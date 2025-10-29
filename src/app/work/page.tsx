@@ -70,7 +70,7 @@ export default function Page() {
               </div>
               <p className="text-foreground/80">
                 developed a web view integration with Next.js for the mobile
-                app, now used by <span className="text-foreground">100k+</span>{" "}
+                app, now used by <span className="text-foreground">200k+</span>{" "}
                 users; directly worked with the CTO, Daulet, who was my mentor
                 at a startup incubator. they recently raised{" "}
                 <span className="text-foreground">$3.2M</span> seed.

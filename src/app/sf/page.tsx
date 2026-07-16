@@ -3,15 +3,51 @@ import Image from "next/image";
 
 export default function Page() {
   const images = [
-    ["/san_francisco_1.webp", "building", 280],
-    ["/san_francisco_3.webp", "above the fog", 300],
-    ["/san_francisco_4.webp", "near golden gate bridge", 300],
-    ["/san_francisco_5.webp", "golden gate bridge", 300],
-    ["/san_francisco_2.webp", "outer sunset", 300],
-    ["/san_francisco_7.webp", "coffee with bereket (better-auth, yc x25)", 540],
-    ["/san_francisco_6.webp", "at vercel hq with rauchg", 480],
-    ["/san_francisco_8.webp", "with mark (co-founder of t3chat)", 300],
-    ["/palo_alto_stanford.webp", "palo alto and stanford", 300],
+    [
+      "https://l54l40586t.ufs.sh/f/7zQQCVmSpD3A5W8wzhZ09DFQJZmKGNtfEAyCHlBr5Oz1Xe6a",
+      "building",
+      280,
+    ],
+    [
+      "https://l54l40586t.ufs.sh/f/7zQQCVmSpD3ATBOFktuSoBt7EVDnxKZUmqCWaNMbFhpyclvi",
+      "above the fog",
+      300,
+    ],
+    [
+      "https://l54l40586t.ufs.sh/f/7zQQCVmSpD3AtiBTcfViOCnRAbF19YcagVKhz5lWxEXUqf26",
+      "near golden gate bridge",
+      300,
+    ],
+    [
+      "https://l54l40586t.ufs.sh/f/7zQQCVmSpD3AtrkO0rViOCnRAbF19YcagVKhz5lWxEXUqf26",
+      "golden gate bridge",
+      300,
+    ],
+    [
+      "https://l54l40586t.ufs.sh/f/7zQQCVmSpD3AC0BsMVnerIpNtPjysEkUXlHhQfqzYOdwnM2u",
+      "outer sunset",
+      300,
+    ],
+    [
+      "https://l54l40586t.ufs.sh/f/7zQQCVmSpD3AhWAs1pgD5xlp7oMbKNiYgsXwad2S4ruOAR6T",
+      "coffee with bereket (better-auth, yc x25)",
+      540,
+    ],
+    [
+      "https://l54l40586t.ufs.sh/f/7zQQCVmSpD3AnhHMucGqDr0u8ZsTtSqhJIfgeURlKaMBEkCW",
+      "at vercel hq with rauchg",
+      480,
+    ],
+    [
+      "https://l54l40586t.ufs.sh/f/7zQQCVmSpD3AdVIdmU6yD8RdWQ6uSvEhlYkPbMCJItc3mUsp",
+      "with mark (co-founder of t3chat)",
+      300,
+    ],
+    [
+      "https://l54l40586t.ufs.sh/f/7zQQCVmSpD3AwZmi8VOXc1hARqTYSwCl4DxmoONjefsar85t",
+      "palo alto and stanford",
+      300,
+    ],
   ] as [string, string, number | undefined][];
 
   return (
@@ -81,6 +117,7 @@ export default function Page() {
               src={src}
               alt={alt}
               fill
+              sizes={`${width ?? 192}px`}
               className="relative object-cover rounded-lg"
             />
           </div>

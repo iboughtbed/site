@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="flex-1 flex flex-col">
       <div className="w-full flex-1 font-mono flex p-8 items-center justify-center gap-8">
-        <div className="flex flex-col gap-6 w-full md:w-[28rem] text-left">
+        <div className="flex flex-col gap-6 w-full md:w-md text-left">
           <div className="flex items-center gap-2 font-medium text-xs md:text-sm">
             <Link
               href="/"

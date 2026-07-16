@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <main className="flex-1 flex flex-col">
       <div className="flex-1 font-mono flex flex-col p-8 items-center justify-center gap-8">
-        <div className="flex flex-col gap-6 w-full md:w-[28rem] text-left">
+        <div className="flex flex-col gap-6 w-full md:w-md text-left">
           <div className="flex items-center gap-2 font-medium text-xs md:text-sm">
             <Link
               href="/"
@@ -54,8 +54,30 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-6 w-full md:w-[28rem] text-left">
+        <div className="flex flex-col gap-6 w-full md:w-md text-left">
           <div className="flex flex-col gap-6 font-medium">
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center justify-between">
+                <a
+                  href="https://www.linkedin.com/company/thefashionpeople"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex items-center gap-2 underline underline-offset-2"
+                >
+                  self-employed
+                </a>
+                <p>2024-2026</p>
+              </div>
+              <p className="text-foreground/80">
+                built{" "}
+                <span className="text-foreground">
+                  product, design and engineering solutions
+                </span>{" "}
+                for businesses, restaurants, clinics and national
+                medical-academic institutions.
+              </p>
+            </div>
+
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <a

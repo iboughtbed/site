@@ -53,7 +53,7 @@ export default function Page() {
   return (
     <main className="flex-1 flex flex-col">
       <div className="flex-1 font-mono flex flex-col p-8 pb-0 items-center justify-center gap-8">
-        <div className="flex flex-col gap-6 w-full md:w-[28rem] text-left">
+        <div className="flex flex-col gap-6 w-full md:w-md text-left">
           <div className="flex items-center md:justify-center gap-2 font-medium text-xs md:text-sm">
             <Link
               href="/"
@@ -108,7 +108,7 @@ export default function Page() {
         {images.map(([src, alt, width], index) => (
           <div
             key={index}
-            className="min-h-[28rem] h-full relative shrink-0"
+            className="min-h-[448px] h-full relative shrink-0"
             style={{
               width: width ? width : 192,
             }}
@@ -117,8 +117,10 @@ export default function Page() {
               src={src}
               alt={alt}
               fill
-              sizes={`${width ?? 192}px`}
+              sizes="(max-width: 768px) 90vw, 20vw"
+              loading={index < 5 ? "eager" : undefined}
               className="relative object-cover rounded-lg"
+              quality={75}
             />
           </div>
         ))}

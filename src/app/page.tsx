@@ -60,7 +60,7 @@ export default function Home() {
             >
               sanzhar
             </span>
-            . i own a computer. i am still figuring out life. i also code,
+            . i am a software engineer. i am still figuring out life. i also code,
             design, and make art.
           </p>
           <p className="font-medium">
@@ -73,6 +73,9 @@ export default function Home() {
             </Link>
             , met lots of founders and incredible people; visited a lot of
             places in the city and outside of it like Palo Alto and Stanford.
+          </p>
+          <p className="font-medium">
+            now based in Astana, Kazakhstan. building <Link href="/work" className="text-foreground underline underline-offset-2 whitespace-nowrap">apex studio</Link>.
           </p>
         </div>
       </div>

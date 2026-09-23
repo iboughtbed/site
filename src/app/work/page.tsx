@@ -59,22 +59,21 @@ export default function Page() {
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <a
-                  href="https://www.linkedin.com/company/thefashionpeople"
+                  href="https://apexstudio.kz"
                   target="_blank"
                   rel="noreferrer noopener"
                   className="flex items-center gap-2 underline underline-offset-2"
                 >
-                  self-employed
+                  apex studio
                 </a>
-                <p>2024-2026</p>
+                <p>2025-present</p>
               </div>
               <p className="text-foreground/80">
-                built{" "}
+                co-founded a company that builds{" "}
                 <span className="text-foreground">
-                  product, design and engineering solutions
+                  products, design, and AI-powered engineering solutions
                 </span>{" "}
-                for businesses, restaurants, clinics and national
-                medical-academic institutions.
+                for restaurants, public clinics, national medical institutions, oil & gas businesses, etc. in Kazakhstan.
               </p>
             </div>
 
@@ -86,7 +85,7 @@ export default function Page() {
                   rel="noreferrer noopener"
                   className="flex items-center gap-2 underline underline-offset-2"
                 >
-                  the fashion people
+                  garderob
                 </a>
                 <p>aug-sep, 2024</p>
               </div>
@@ -99,7 +98,7 @@ export default function Page() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-2">
+            {/* <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <p className="flex items-center gap-2 underline underline-offset-2">
                   art projects
@@ -113,7 +112,7 @@ export default function Page() {
                 have filmed North Kazakhstan, Almaty, and my hometown Uralsk in
                 West Kazakhstan.
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

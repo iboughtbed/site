@@ -81,9 +81,7 @@ export default function Page() {
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-between">
                 <a
-                  href="https://prllxhq.com"
-                  target="_blank"
-                  rel="noreferrer noopener"
+                  href="#"
                   className="flex items-center gap-2 underline underline-offset-2"
                 >
                   parallax

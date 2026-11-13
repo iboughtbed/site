@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
-import "./globals.css";
+import { preload } from "react-dom";
 
-const jetBrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-});
+import { preloadFontHref } from "@/lib/fonts";
+
+import "./fonts.css";
+import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sanzhar.xyz"),
@@ -18,11 +17,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  preload(preloadFontHref, { as: "font", type: "font/woff2", crossOrigin: "" });
+
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${jetBrainsMono.variable} min-h-svh bg-background flex flex-col font-mono text-sm antialiased`}
-      >
+      <body className="font-jetbrains-mono min-h-svh bg-background flex flex-col font-mono text-sm antialiased">
         {children}
       </body>
     </html>

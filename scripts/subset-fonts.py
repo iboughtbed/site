@@ -93,7 +93,7 @@ def static_instance(font: TTFont, weight: int) -> TTFont:
 
 
 def subset(source: bytes, unicodes: set[int]) -> TTFont:
-    font = TTFont(io.BytesIO(source))
+    font = TTFont(io.BytesIO(source), recalcTimestamp=False)
     options = Options()
     options.layout_features = FEATURES
     options.hinting = False
@@ -106,7 +106,8 @@ def subset(source: bytes, unicodes: set[int]) -> TTFont:
     subsetter.subset(font)
     buffer = io.BytesIO()
     font.save(buffer)
-    font = instantiateVariableFont(TTFont(io.BytesIO(buffer.getvalue())), {"wght": WEIGHT_RANGE})
+    font = instantiateVariableFont(TTFont(io.BytesIO(buffer.getvalue()), recalcTimestamp=False), {"wght": WEIGHT_RANGE})
+    font.recalcTimestamp = False
     font.flavor = "woff2"
     return font
 

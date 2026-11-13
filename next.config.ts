@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  redirects: async () =>
+    ["work", "projects", "sf"].map((section) => ({
+      source: `/${section}`,
+      destination: `/#${section}`,
+      permanent: true,
+    })),
   typescript: {
     ignoreBuildErrors: true,
   },

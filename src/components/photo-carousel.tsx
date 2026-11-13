@@ -66,7 +66,7 @@ export function PhotoCarousel({ heading, photos }: { heading: ReactNode; photos:
           onScroll={updateEdges}
           className="scrollbar-hide fade-left flex snap-x scroll-px-8 gap-5 overflow-x-auto px-8 py-4 md:scroll-px-24 md:pr-8 md:pl-24"
         >
-          {photos.map((photo, index) => (
+          {photos.map((photo) => (
             <figure
               key={photo.id}
               className="shrink-0 snap-start rounded-[3px] bg-surface p-2.5 pb-0 shadow-raised"
@@ -77,7 +77,6 @@ export function PhotoCarousel({ heading, photos }: { heading: ReactNode; photos:
                   alt={photo.alt}
                   fill
                   sizes={`${photo.width}px`}
-                  loading={index < 3 ? "eager" : undefined}
                   className="object-cover brightness-[1.04] contrast-[.95] saturate-[1.05] sepia-[.08]"
                   quality={75}
                 />

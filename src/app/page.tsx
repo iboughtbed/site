@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 
-import { Chip, chipClassName, surfacePillClassName } from "@/components/chip";
+import { chipClassName, surfacePillClassName } from "@/components/chip";
 import { NetworkSchoolIcon, SparkIcon } from "@/components/icons";
 import { Navigation } from "@/components/navigation";
 import { type Photo, PhotoCarousel } from "@/components/photo-carousel";
@@ -136,10 +136,10 @@ export default function Home() {
               sanzhar
             </span>
             . i am a{" "}
-            <Chip tone="sky">
+            <a href="#work" className={chipClassName("sky", "hover:brightness-110")}>
               <SparkIcon />
               founder
-            </Chip>
+            </a>
             . i am still figuring out life. i also code, design, and make art.
           </p>
           <p className="leading-7">
@@ -154,13 +154,16 @@ export default function Home() {
             now based in Astana, Kazakhstan and{" "}
             <span className="whitespace-nowrap">
               part of{" "}
-              <span
+              <a
+                href="https://ns.com"
+                target="_blank"
+                rel="noreferrer noopener"
                 title="network school"
-                className={`${surfacePillClassName} px-2.5 py-0.5 text-foreground-strong [&>svg]:mr-1.5`}
+                className={`${surfacePillClassName} px-2.5 py-0.5 text-foreground-strong transition-colors hover:bg-white [&>svg]:mr-1.5`}
               >
                 <NetworkSchoolIcon />
                 ns
-              </span>
+              </a>
               .
             </span>
           </p>

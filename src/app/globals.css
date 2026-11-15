@@ -40,26 +40,66 @@
 }
 
 @utility chip {
-  --bloom:
-    0 2px 6px -1px color-mix(in oklab, var(--tone) 55%, transparent),
-    0 0 16px -2px color-mix(in oklab, var(--tone) 50%, transparent),
-    0 0 32px -4px color-mix(in oklab, var(--tone) 30%, transparent);
+  --rim: white;
   border-radius: 9999px;
   padding: 0.125rem 0.625rem;
   white-space: nowrap;
   color: var(--chip-foreground);
-  text-shadow: 0 1px 0 color-mix(in oklab, var(--tone) 75%, black);
-  background: linear-gradient(
-    to bottom,
-    color-mix(in oklab, var(--tone) 72%, white),
-    var(--tone) 70%
-  );
-  border: 1px solid color-mix(in oklab, var(--tone) 82%, black);
+  text-shadow: 0 0.5px 1px color-mix(in oklab, var(--tone) 50%, black);
+  border: 1px solid transparent;
+  background:
+    radial-gradient(90% 70% at 50% 115%, color-mix(in oklab, var(--tone) 60%, white), transparent)
+      padding-box,
+    linear-gradient(to bottom, rgb(255 255 255 / 0.16), transparent 50%) padding-box,
+    linear-gradient(var(--tone), var(--tone)) padding-box,
+    linear-gradient(
+        160deg,
+        var(--rim),
+        color-mix(in oklab, var(--tone) 75%, var(--rim)) 25%,
+        var(--tone) 50%,
+        color-mix(in oklab, var(--tone) 60%, var(--rim)) 80%,
+        var(--rim)
+      )
+      border-box;
   box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.4),
-    inset 0 -1px 1px color-mix(in oklab, var(--tone) 85%, black),
-    var(--bloom);
+    0 0 0 0.5px color-mix(in oklab, var(--tone) 45%, transparent),
+    0 1px 1px color-mix(in oklab, var(--tone) 35%, transparent),
+    0 3px 8px -3px color-mix(in oklab, var(--tone) 45%, transparent);
   transition: filter 150ms;
+}
+
+@utility surface-pill {
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(to bottom, rgb(255 255 255 / 0.92), rgb(255 255 255 / 0.7)) padding-box,
+    linear-gradient(
+        160deg,
+        white,
+        color-mix(in oklab, var(--foreground-strong) 7%, transparent) 50%,
+        white
+      )
+      border-box;
+  box-shadow:
+    0 0 0 0.5px color-mix(in oklab, var(--foreground-strong) 8%, transparent),
+    0 1px 1px color-mix(in oklab, var(--foreground-strong) 5%, transparent),
+    0 3px 8px -3px color-mix(in oklab, var(--foreground-strong) 12%, transparent);
+}
+
+@utility glass-bar {
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--background) 80%, transparent);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    inset 1.5px 1.5px 0 -0.5px rgb(255 255 255 / 0.9),
+    inset -1px -1px 0 -0.5px rgb(255 255 255 / 0.6),
+    0 0 0 0.5px color-mix(in oklab, var(--foreground-strong) 10%, transparent),
+    0 1px 2px color-mix(in oklab, var(--foreground-strong) 6%, transparent),
+    0 8px 24px -8px color-mix(in oklab, var(--foreground-strong) 18%, transparent);
+
+  &[data-liquid] {
+    background: color-mix(in oklab, var(--background) 55%, transparent);
+  }
 }
 
 @utility golden-gate {

@@ -3,6 +3,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { surfacePillClassName } from "@/components/chip";
+import { useLiquidGlass } from "@/components/liquid-glass";
 import { sections, socials } from "@/lib/links";
 
 const itemClassName = "relative block rounded-full transition-colors duration-150";
@@ -103,6 +104,12 @@ function SectionPills({
 
 export function Navigation() {
   const { activeId, selectSection } = useActiveSection();
+  const { ref: glassRef, filter: glassFilter, glassProps } = useLiquidGlass<HTMLDivElement>({
+    bezel: 14,
+    refraction: 12,
+    blur: 2,
+    saturation: 1.6,
+  });
 
   return (
     <>
@@ -133,7 +140,12 @@ export function Navigation() {
       </aside>
 
       <nav className="fixed inset-x-0 bottom-[calc(1rem+env(safe-area-inset-bottom))] z-40 flex justify-center px-4 lg:hidden">
-        <div className="flex items-center gap-1 rounded-full border border-foreground-strong/8 bg-background/80 p-1 text-xs shadow-raised backdrop-blur-md">
+        <div
+          ref={glassRef}
+          {...glassProps}
+          className="glass-bar relative flex items-center gap-1 p-1 text-xs"
+        >
+          {glassFilter}
           <SectionPills
             activeId={activeId}
             onSelect={selectSection}

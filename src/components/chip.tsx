@@ -4,7 +4,7 @@ const tones = {
 };
 
 export const surfacePillClassName =
-  "rounded-full border border-foreground-strong/8 bg-surface shadow-raised";
+  "surface-pill";
 
 export type ChipTone = keyof typeof tones;
 

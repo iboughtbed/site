@@ -17,12 +17,8 @@ const work: Entry[] = [
   {
     name: "apex studio",
     date: "2025-now",
-    description: (
-      <>
-        co-founder. building <span className="text-foreground-strong">tolgau</span>, ai agents for
-        businesses in kazakhstan.
-      </>
-    ),
+    description:
+      "co-founder. built a development agency in kazakhstan. clients include the national medical academy.",
   },
   {
     name: "garderob",
